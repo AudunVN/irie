@@ -76,7 +76,6 @@
 				-o-background-size: cover;
 				background-position: center;
 				min-height: 100vh;
-				min-width: 100vw;
 				text-align: center;
 				/*background-repeat: no-repeat;
 				background-image: url(img/DSC08264_ces2.jpg);*/
@@ -177,6 +176,10 @@
 				box-sizing: border-box;
 			}
 			
+			p {
+				padding-top: 0.25em;
+			}
+			
 			.calDay {
 				display: block;
 				padding-bottom: 0em;
@@ -200,6 +203,7 @@
 			}
 			
 			.inputContainer {
+				font-size: 2em;
 				max-height: 2em;
 				transition: max-height 1s ease;
 				overflow: hidden;
@@ -213,6 +217,10 @@
 			#passwordInput {
 				display: none;
 				transition: background-color 0.2s ease;
+				height: 2em;
+				font-size: 1em;
+				box-sizing: border-box;
+				text-align: center;
 			}
 			
 			img {
@@ -234,6 +242,12 @@
 				box-sizing: border-box;
 			}
 			
+			.calDay .fa {
+				padding-right: 0.25em;
+				top: -0.025em;
+				position: relative;
+			}
+			
 			.timeLoaded #passwordInput {
 				display: inline;
 			}
@@ -251,7 +265,7 @@
 		<div class="contentContainer">
 			
 			<div class="inputContainer">
-				<input id="passwordInput" placeholder="password pls"></input>
+				<input id="passwordInput" type="password" placeholder="password pls"></input>
 				<span id="passwordPlaceholder">Loading local time...</span>
 			</div>
 			
@@ -259,7 +273,6 @@
 		</div>
 		<span class="copy">(c) 2016 spehs</span>
 		<!-- (slow) includes begin -->
-		<link href="https://fonts.googleapis.com/css?family=Bauhaus" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -302,10 +315,11 @@
 		</script>
 		<!-- (slow) includes end -->
 		<script>
-			var encryptedString = "U2FsdGVkX19Ge9lKDnDp/H4VUWHBJa+OrJdVgk5GuLmROj1MJodvdecGumJ1kAQlqmEX5mpV9wyuycAwqQl3ZfbXGQGsm+i1ao1fOz3rHeqrohbHcijt9SVrun0cKJhJpikXMvak+iNobYv1ECb4LpdHvywjvYz4BsdDB0Js9yivTiN/fJKas2sOOnb3RYBbm6WWO9Fa2JcolqR4nwfQK2uDzz14Hfoox4GCh/2gvzc1o7FIHl6hgEnkD5uK5z7NRd0Z2uFCtTiwdiQSNMBXePwq175aLWzKqQzgdB+yb7rySKFiw8VZt0/DWRZs3IiPTrGaM1tZHm+qivoVxpRlb/aUQEeDUqt8QZJENh9mxoWuqe1cacg/LYeYkLjcKtphtr664a0tHCwOHu3rkbvxKr26YWdZM78Zjq79X+efdNIX5LejXFftU1I5rA0IRAkz1FL3Jd4C6Mdh3kcPZ8a/F9t8POQJYkstIc+i5Ge8IrT95x0aOC5jU4R3SI/TnjDJRMLD2IT50lplSQV9HWmYWyWwCPC3xo/k/ueO5x+vEr/5qNqJ9TVNSKfuMFEDQaTfP1K5+/7Rwszk6z2YdGKCb/q16i+nQ84nIzyxqRsdX+puNfgrbJO20jmFxRta3QuQcZRQFtuE2RXIhLdiLQ/WWzVtJMg8OXF10ss1O7p9/M/8fbAwr74VwuebPNtIWSpxtLm3/7gCqXAo9C0A51q49zB+ZO+waJ0/Vr/dLVGjMLzWDN0IdvGSVl1hH0F0+RoYtDScCXnQUKonbHnJImzHnlFlCLUOOzS0COWszlmi2VXszKL9yZ+1KHU1wR7x4iA3LR8jKI0OTrJ5kouhiUgTNYVkOShXRwcjEx04cRsZc3DeunrqZRgMdkQAAo6OKEgQ0HgKSkOhlEqQuo+kcFkmLmHPHYwZEX6BXyNTpOOmNh/iepfO/PbqEryry56UcrZCljDTDDFOQHrU/cgKrw4sIsRVy13ajpIur0s4xYgxeI3fYWwhXbB95pQRMu8z5PKEJJALa2mNVob2h3Vxk6ovdxU0K/GEhmmxfTsd+ZjMz8QVXavvrRGZBGAYHlA9wo4sTNvj1Ze+TCb5AwT+xAoiu++nPaQbd7HaXAzYc1cNagGacK2ATHxIe4dA+oGi1+c1ZzXuFDh+xJS1VZAFEOBtGB2A8AgUPjHnrSRvgczPpf20zLegWz/z45fG2yyMfhTn3qhlmvQ6gaj+4iFHhEW8z+VQ7THgNpqIyD2hSqxGpvs465GSJfHVaBuvptrVSHG9smnQSSPGNeH/z4SJI6g6qfoI8Alzyqej/phnYRHmq736h8A7VRSNe2l8ItU+K1udJNukjNVahkG226PwPGmyVndVMlR4NDR7pyNDYLWVBXnYOS6aIaZDyjaNsCvz6gQH46fytHtcoj0Pjh0yD5HcVkESpKXIMPPQQEmR3ka+Q3iDjvwI90jBr40UmUhJEKVdA2JU5vcgcWXu6LkdZrmqH/ZgCTy5J6fQ3tq9150EZ11ixTZRty4hXHUJLBF4Q6eHTAbZ+vBtgO3U63HahtQzq2utUfYcn6KvFOnEekrL8hQs3kp/cnGPiyiUXYkvmKU605BogLS58ZzF9aVIcbilJ705Rk/czJ/t9wWJ5qsRQ+vmCyfgI2Hfg+eYcYIqg7S/axS7jZYVikOG8lLyg39pF7PqV2TpAUVA7fs0X1OlVI5Z0lb9Y6/PMO+JllQaerWVon6Q739zNEVoCv8fyoC/2WkPSygV4YYaOv4dZ8LTn5DK14Bf92a/7VnpoyDvCs84GjwdgFCoUVjx9/4+Ybgpd+27FvIBI+qOyyqcg/QQSk1y5k8VigjbUS3HOVTRgRFLxT/RAuY9pDtqVVLMmDNHPdCnzVkKveMHa3b8DhpyUcmbVzFQ8ztmS79DJeV1fvvBuDJOZ15mFbKbAg89FsPM4HxCYBrTKZXABUqreRtqpYcpIssJjEZl46pnTsAfsoT+pOVs0jRqNUcu8ezSqi4ndPlesY3dwgnG1awrMddGXqTKx9GyA6xo94oNn9P2MWXZXEAbQSd5Igjum6KbOsPGYqfKbP+uU/ouT1O4e17jLKOImwNvT8rcVots0/DcO/PPrTbz5jF+ND/waTfoJ9I0ahD8ibsTJlQ+MzyDUvOdFDx3D1f4ugDBZ315Ih4Mpam2gJ91qfrdGoXuiphkBAlApvYKBmh1S8BagXCfrYCyBBQ8e4GDlc5W6BrAu8+fdMNF";
+			var encryptedString = "U2FsdGVkX1/eIwdWVkMphTAe2QDn4GOTIgw9GpvnLe+2zYxeGTdz5gl0H9sjsOMHkS7z9ShBLMub4eoUVKE4PZSQXLbBC/UdjI066LC3xCRxB6P9SKXWKin97BzqQCfphPfUBMTHR8KiaPn2qPxsSiBpWiBC9rOaKo37BEALHEMV8otNg3qNmZ7FSXjB6nsYtRZ8ilKg8xMCjmf7qDmGz6X1pAWnLy8Xvm0ak88o0PSvzAMDwwLK1xWBfHrheVi5rxpi+VjgBen2q738zEH9aITQcMdJ+qCXx+qGj305mMDYsfTelg5NwSWFsFCVb0Ab7j2Syn+Kcg6nNAx0d4F/G8+57vkqcOqIUthkIpMmGlyiyuMkze08CpwoLxIWq4GQoYfjyWGI93zllCPCcHfmQAgpPmyNj6m0oDVW+8FGc7l84kX98JDFJimPibb0EUuxwc8UiEhOBgn/Lw2S//D7Kq73k6jnVLwwnN9gKvgzd424PywErHYy1u8T/K692mVeQFQE3tuv6pn6j+vu3R67oaI2LnIhPzerd7+HpOPJL20/z23WAuOapmOPe5J5Eh/qo/iEJS3rcLQ4IgFDkmHqAbTRewKdF6KLRHvTOyEC1jeXWoKpp0K6cfG/WCVOwtCuY8AgJATSLlITN2f+NpHTf3FzqIeVdZS0NkR5ldER1OpEBTOf0z56grit5C+BeWj5V2AYIZGl3r5pPQTPBfiUamTDI8mxjA36pd4ih1h7d4l0cMj9OcnE4tYz0rsETenjdtIVOPzZl1qLD1gKidda3XQAHzWXvoaxCkml3Zl2SunmGbAuWgI4C7y+ypzRllR/LpLOFx+lXYGpgexoG8u21dtrYW/ZdPg/yRDL2sGgjpaevZhJYtZrBSyajLIwkuapsKEErFSBZDKQtVNTro9S2auXOj+XJP6hfc+8mBhh3eYrgh2Cjw0yTfKGXT1pFkD2Z63D4nMAWnUsGQ5+lvYVhnuFNYfa0qb9SlGiXWj2jDAmj/gPC4+zjeR1aSsz4J6j3r0tpEDxVJdTiJQcQeypsMTG4yMRB0dQcnmwGLaq4zlY5JkyL0h95YJAZvfh8sp+subGUMQAXsqWJQBf/61AQBv9vdcaV9JUmVbtEHA8SM1trKnX39UfvscRnsGzj5MC3CE3j5sXdtxNiGo6BsHwt0lTsn+zSUnbYf3LQ04+NPV8Y9jsYqoGeQ59PrUhmYxT2LoOg5Qf+CCT6jnFTk7r9Y9RT35dxRRgBWwS+hLsm58XpWdloDqgHGpgedj2sDQsRdrT0KLapHyaI4SkiqyopxiEntX6zdihmrAGAC7WCLOammzs/73s3oGdcGeOLcy4+9iKh6JHx45d0DEsmPXPtzSjRShnldeE3tVqb78Oejuyrqn8TxbO8EMiLfiAQ2RYywTausL3wxT1IGf7NFNu1lBvhM+rtVaPaYhcXiZHs4auc+qZ0b2JOUAgCUyEXaLLP9Xd1vvdO7If9nfUNAdM/FhBpLfXaTMFtJkI1VHYEmRRNE0UifhFsoZ2+oivJkQmlnxv3vOHK/TwBAxjmiM+pjEuGOdS348HexwjbLDZUWCYXpZSVk3yn3htCB2PnYNrkQptRv/MXR3GoQdW3mx119knEdY12/1l3A7UCAmWtEr6ZAo+4GrBy3Y0TikLi+XDmXkpO9EgTB71xptL6njSIQc6WhAQFZI9+wgD51PLT20DWtetUulVTPyNYYSJ9+6n56sChHYswZI06fpULP7wMNH1InBnnh8safQGj8fTIyKFLZrX8yCPvnAbVeKXOad4FGl/mV2RDspGMH7DU3mX2G/w4q8zOr1+yGjnRU1Jhu0jwPmNa+8y+XOHncaZnfkclPWAGpZHESGwTucV8fTCxw3+g1K18LlGG1h+QRywrTJttWPCB2hF53bHKmR77NM/xFH2nYb+U2ghRaKMSCH7TUC4fbyXxIw/VEji1yLFjkuMZyKPdfdgIZDrPj1T3QzxfZWL925jybCkiOxZlTW2VUat4D5uhL9B6M6JgpbPTOhA29EgZZiUKTkcJ/b8imWEnQJKVkHT0z2rzV6eVpW76fmWdSmLV1YOVajgSRrfCeczUijqmCo20REQ7ZTRXv0Cv8IvtuSgGhuu4vFa/agRLdBE7WEG8kujGdv+YJ9BS5j1eSVaz+PZIx10GcHa/va/THgFlzdf75jcE2FVWVlwHQSI05ETcoxMbQescmWUXXcc7DDxwld0aortKycyiy8Wnc5w2CsaXF9LM3UH7FGRUdBIxppd4aau353kFdcJl02s0ugBMOygLURX+NBZ7ik+Jn3+Hz4jUldjPHpxzWVuQBiqw8nE9y8b3Oe0RyZO+EziBgTZmKo78l1E5fxHsMACezKCiDUlRp7etBCbG96wQp1KKeMK39ZIQFVQjQ9yFp5/uMjTHkkl0eXVhaV1rzUII2+pzqnZJ1NGAKou9ZaSpX3j/BU2uyXyubennqb/SFFNpORpxdndee6pSBGoRkS7FK7LPNaSD3yOU5Myp1MNZz2jEgifQ/62K+4Ye9gl7ua9sRqZPMnp26bPC7Gyf4juUNI96R8/N2kZ5A3DBABmBru8yXp7JPV+MamlNzW3H32n2E0T5yS9RabyW6U0gBnUf7WnE0Sz04JENKGIjJe8NST1o9/poPNLc9uUVgFW05IFN9N06aeaHjcL4/z0jUNytOXrCZ5VtFrKNgElgw6jkWVzzQa3tIUhEhCc9kSgQ/itWK0HTe9Ru4/h3/Ol7CmzRHoaqhtWSix3Gobx56Y8OciaYYtEEdREvBhDeaOZ4SN9X6EnUD3pfi/5G5HaYjVP09hJCq79i2KxPApIIDPmIQ==";
+			
 			var dateString;
 			$(document).ready(function() {
-				console.log(":(");
+				console.log(":)");
 				$.ajax({
 					dataType: 'jsonp',
 					url: 'http://www.timeapi.org/cet/now.json',
@@ -336,7 +350,6 @@
 					console.log("Password incorrect.");
 					decryptedString = null;
 				}
-				console.log(decryptedString);
 				if (decryptedString !== null && ((y > 2015 && m > 11) | (y > 2016))) {
 					$("#passwordInput").removeClass("wrongPassword");
 					$(".cOut").append(decryptedString);
@@ -345,11 +358,19 @@
 					}
 					for (var i = d; i > 0; i--) {
 						$("#d"+i).appendTo(".output");
+						if(!document.querySelector("#d"+i+" .calDay .fa")) {
+							if (d == i) {
+								$('<i class="fa fa-calendar-plus-o" aria-hidden="true"></i>').prependTo("#d"+i+" .calDay");
+							} else {
+								$('<i class="fa fa-calendar-check-o" aria-hidden="true"></i>').prependTo("#d"+i+" .calDay");
+							}
+						}
 						/* modify content as appropriate for each day: $("#d"+i)... */
 						if (d == 24) {
 							$("body").addClass("evil");
 						}
 					}
+					$("#d"+d).addClass("today");
 					$("body").addClass("passwordEntered");
 				} else {
 					$("#passwordInput").addClass("wrongPassword");
