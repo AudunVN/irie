@@ -66,10 +66,18 @@
 			}*/
 	
 			body {
+				position: relative;
 				background: white;
 				z-index: -10;
 				background-size: cover;
+				background-attachment: fixed;
+				min-height: 100vh;
+				min-width: 100vw;
+				text-align: center;
+				/*background-repeat: no-repeat;
+				background-image: url(img/DSC08264_ces2.jpg);*/
 				background-repeat: no-repeat;
+				background-image: url(img/christmassnep.jpg);
 			}
 			
 			.contentContainer {
@@ -81,6 +89,34 @@
 				padding: 1em;
 				border-radius: 0.2em;
 				box-shadow: 0 0 0.2em 0em rgba(0,0,0,0.6);
+				display: inline-block;
+				transition: width 0.5s ease, height 0.5s ease;
+				margin-bottom: 2em;
+			}
+			
+			body.evil {
+				background-image: url(http://www.clipartkid.com/images/529/free-animated-christmas-clipart-gifs-christmas-clipart-IbWmDP-clipart.gif) !important;
+				background-repeat: repeat !important;
+				background-size: auto !important;
+			}
+			
+			.evil .contentContainer {
+				font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+			}
+			
+			.evil input {
+				font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif !important;
+			}
+			
+			.copy {
+				position: absolute;
+				bottom: 0;
+				margin: 0 auto;
+				left: 0;
+				right: 0;
+				padding: 0.5em;
+				font-family: "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif !important;
+				color: #e84040;
 			}
 			
 			ol, ul {
@@ -135,7 +171,7 @@
 			}
 			
 			.timeLoaded.passwordEntered .output {
-				max-height: 50em;
+				max-height: 100em;
 			}
 			
 			.inputContainer {
@@ -177,6 +213,7 @@
 			
 			<div class="output"></div>
 		</div>
+		<span class="copy">(c) 2016 spehs</span>
 		<!-- (slow) includes begin -->
 		<link href="https://fonts.googleapis.com/css?family=Bauhaus" rel="stylesheet" type="text/css">
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -221,7 +258,7 @@
 		</script>
 		<!-- (slow) includes end -->
 		<script>
-			var encryptedString = "U2FsdGVkX1/GJwe8K/zBK5RhbcXd/IxPcIByVQEweNeTg0i9EE8ZCrVD7YsWw5ES9OUHg4sQs5r3KnC2nQ0UqMyYXmoPDlreZm1Sc4ZEI2z/2xUpkz9WIRVLnt0HXktX1sr6dCgNrKf6IYOjuUkOKDEc7OzLD3j86Ytt2QVYCOwJ67EMqhwXopw2Z5YPAsAPeYYquUl3f3MFgxdpeftuCOiPQI2ZYIudkA1TYhzP+3a0wJmGogKXwbS1jZ6v7AnlRTNN/SLsiqaWdoF/slz/YU6QKzz90GeciHh+JLLzQ4Ow9xNjps+O9T71A1EaL0DT8DewJPFsBXExqH3B+Uuli9ZvBPwyS3AjLVGIOdt8fh3DR4wolNKBTOqkC3OPg/dAog+tu/CnyEg18LiwLqsIeI29FUAnNgvwI+vKvAc8oxv6r1GjEtPPVk1ZZjyg53TK6p5bVaZJQG3A342+eTvR6wNspSYXwAI1/SxGMLUsuDsop9HE0SHl7XNcS2f3+TBcSIKCNaK7Hbgzs2GDVxg6bSOEluf/8f83YGJWmF8OgGZ/+wG+S2YZYvf8kyEMV/2Pg/PRJluKS7yYWs+HCSxVe5CaJotgrVxeheTxC4+aKFvUQI/Q7Qvlw1G1vsKq93sYwn9S1Y/p93Zk+EhBm7qkcppYN7C/CMzc3xqNwCIKyGDAmMxhLQaRxemFcnL7xhfOFFekzyAvjNnhxtPlm1KvQo5mie+E7PnccFdqo5VjZ7KTSoFkhShL0EafTFKWnu6s5XhPW90Roy/oP2mpEzS5pz9BawVExEYSLc+cVk8nbABZRZ/5ixBp7maq96pSCoZ5gmQ6BdAG0MGaA1mSFMCfO3ikn8v0vndeFnhtVJ71tqEoE6Cl7Z1hstwNE6Mvm19qgxT0ahST4I3Stad/MBmWsAIHUlQFjoHIiKc2Vm8gXnd4H08E+Cp5n4cw2CKD2wQ3l2cRmaVElzzB1FZgZdZ2vQB9BcUasYAaorR7xPvXhrZtHkvi+osb6zxEJa5C8x4r";
+			var encryptedString = "U2FsdGVkX1/TLJq8o0s/vogwaWIuWwgJ/C4S1qdoAb95WQHZS17VWR/mNCV8HcOSdpAntGxk8qO3tYqC6qjYedFJtdY08Mag/u342Jca+9FgJ8TxDr8ZZjQMIk5+Bs1x89E31aJ++pJDdKAV5Zrn/QalJfw72wCAjkRKXjqra6RQyB4srEKsGGHwilVrXxk4SOmAiOwqpzLZb49qsPsGfcPcNZP1yPIKg60hb4ZndOZyNdpQOcrt05+I/7qBwFCg0MTDAznxdpkGoE+wkeESmtp7D6skc+j9EBI+79T89nGHIWGAIiZThaNvAgetUnfoQ29IBaPF1FAtL6hSi1Af9j7eXyIOuye0bcALFjLXVu08tzUZTqBaYtJnZYkR5cv5QBBBHSbiQZ36wspDdfzyZS3asxFyTN3T7FLtkwHq5IfVk0o5WTAOmCgRYsRbJig/wrIi+fWiWLPqhCnycvs3nwc590BC16L05XqnPN9PJw9T+ipUmCTuwJ7S+TJyfxxCbuhevdVwUbrEwxoP2OiODPlEymG2o0qIQWIXT6MwE6NTLV2cXySopd7hsfxaVfethoII1Cyq2OaFV/WtpPGTmzx5Xe8lzpYMm41wZs7FozXjkwCoQSrNuZXYQg8tsKhOvNpNs5jAWnI/CUo9D7RiU7DXrgyxnCSC8tFUWKA7oXtfge0te4IUcx89MEyL1jtNCLNHwJqooU90Cwt4STWnvjVNq6Eqt/sQspx/RYCohFzDetFXqC8VPl7IyIRIbhYM+2hcl5ATwMmmGhkx9SZIcXcP+G6PgKlJQYcdCPxY7rhMGw4k1hu7rUe+uZCAYvaCuFj+hr0/VnOp9cDSYDkn3a2h/MCJ0oEddW00YAW1n9MUdj3l1v0MIbTI/xhgJ3xK9nRfJuLFkeCu5w+dNsjMLc6aXla2QRxqp/3y0rWdNf2MtkAelHBCmnp+FISvDzUXMzfSrLbz4/UOxT1lMS7Uq3Q1G1UTGMS8k1W3SZm//a3YQ3LL9FzDgjgyIz93+uYxcxH51+KWKwnuhNUDHK/FdAWvwgPrPpkCNWsPLSQWHjrdVa8IUXs6yDhS+9M+8/8/Nom0r3diSrkidykgnY557dpQ25i8htjDwixHD/KWNJy3T40vnvv1aa5x0tOG085KIVd7RuSBPsr2f8u/aag0uxzNk1NwyySsEaz3Rc8gpP14g7MseP3epaFQIfNYxPGUGJfpU9hGa2MSPx7rT6XXSJexW3jG0ZYbm9KtCmow05gnX/GqbWkX9AnQazM2MW0dfly2VerzpOX71qGEpc3G7KpxIErsjsqoc8OUuoE7HqNAUuAbyJDYt8EMigYS4DiIXD7fJvcZW5LKcB6JrSxjtQMoz95NCuLh4v/q3yu3AnN+K9SCiIbIS8bDlWrsxgxiVy/fHk/sf0lXQZpzTk+dw+35wCvBIquziInaNetDQzQ08jsOP3hByeCNsod8rVwsMsR5CPZEWBEwtXAkOZcrmUgcGDujrrcDtjl4fFkeolUzQz5Hf4ytqIeQnfwYqjCykywExX1FRfzOLAEqhvnkKJfmGB7+ZxEEisTKX3N7UJ0xq8YevVl0yJw9R+D+F0JbxJhtYxQ7wIIir4SSl3nqPetodge0P7cjl30yQTrg/XgNJPR5Eoz9o/sEaRWE1wqH4gjZMkSvSWGICNo8U1iu3EtMvh+CaQYm0csgKvplCgsLZIp69Neu3oGtkrPf154VBpvVu9TeCuWErdnkoD+Lv0XOq4Ux3xH9X3bbXSpNVOs=";
 			var dateString;
 			$(document).ready(function() {
 				console.log(":(");
@@ -243,7 +280,7 @@
 				var y = today.getFullYear();
 				/* v should obviously not be here in production. v */
 				console.log(d+" "+m+" "+y);
-				d = 24;
+				d = 25;
 				m = 12;
 				console.log(d+" "+m+" "+y);
 				/* ^ should obviously not be here in production. ^ */
@@ -259,9 +296,15 @@
 				if (decryptedString !== null && ((y > 2015 && m > 11) | (y > 2016))) {
 					$("#passwordInput").removeClass("wrongPassword");
 					$(".cOut").append(decryptedString);
+					if (y > 2016) {
+						d = 25;
+					}
 					for (var i = d; i > 0; i--) {
 						$("#d"+i).appendTo(".output");
 						/* modify content as appropriate for each day: $("#d"+i)... */
+						if (d == 24) {
+							$("body").addClass("evil");
+						}
 					}
 					$("body").addClass("passwordEntered");
 				} else {
