@@ -108,13 +108,63 @@
 			b {
 				font-weight: bold;
 			}
+			
+			#passwordPlaceholder::before {
+				content: "";
+				background-image: url(data:image/gif;base64,R0lGODlhKAAoAIABAH2u3v///yH/C05FVFNDQVBFMi4wAwEAAAAh/wtYTVAgRGF0YVhNUDw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo3MUI1QkNENjMzQTlFMTExOTkwODg2RjEzQjREMEVBNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo1NTE0NTdEQzY0Q0YxMUUyQTBCOTk2MjRFNDZFMkIzNyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo1NTE0NTdEQjY0Q0YxMUUyQTBCOTk2MjRFNDZFMkIzNyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IFdpbmRvd3MiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCODdCMzIzOTM1QTlFMTExOUFFNzg4NzhBOTUxN0IzOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3MUI1QkNENjMzQTlFMTExOTkwODg2RjEzQjREMEVBNiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PgH//v38+/r5+Pf29fTz8vHw7+7t7Ovq6ejn5uXk4+Lh4N/e3dzb2tnY19bV1NPS0dDPzs3My8rJyMfGxcTDwsHAv769vLu6ubi3trW0s7KxsK+urayrqqmop6alpKOioaCfnp2cm5qZmJeWlZSTkpGQj46NjIuKiYiHhoWEg4KBgH9+fXx7enl4d3Z1dHNycXBvbm1sa2ppaGdmZWRjYmFgX15dXFtaWVhXVlVUU1JRUE9OTUxLSklIR0ZFRENCQUA/Pj08Ozo5ODc2NTQzMjEwLy4tLCsqKSgnJiUkIyIhIB8eHRwbGhkYFxYVFBMSERAPDg0MCwoJCAcGBQQDAgEAACH5BAkKAAEALAAAAAAoACgAAAJKjI+py+0Po5y02ouz3rz7D4YTQJakYZpaWqIssL4uG9PBC2f4nNb9LdMFd0IbUYRMVo4hJsj5gXqkHSrHusEqt9yu9wsOi8dkTgEAIfkECQoAAQAsAAAAACgAKAAAAkqMj6nL7Q+jnLTai7PevPsPhhNAlqRhmlpaoiywvi4b08ELZ/ic1v0t0wV3QhtRhExCjiEmyPmBeqQdKse6wSq33K73Cw6Lx+RQAQAh+QQJCgABACwAAAAAKAAoAAACSoyPqcvtD6OctNqLs968+w+GE0CWpGGaWlqiLLC+LhvTwQtn+JzW/S3TBXdCG1GETC6OISbI+YF6pB0qx7rBKrfcrvcLDovH5G0BACH5BAkKAAEALAAAAAAoACgAAAJJjI+py+0Po5y02ouz3rz7D4YTQJakaJgmGqgl655oDMBxemc07mp7mxP9hMHLb2jMIS3HItP5WUahHmmVyspqt9yu9wsOi8eJAgAh+QQJCgABACwAAAAAKAAoAAACSIyPqcvtD6OctNqLs968+w+GE0CWpGiYJhqoJeueaAzAse3iKsv3EZ26ZYAtIYZIPAqTF6SxuXxanLlhtOrLarfcrvcLDosdBQAh+QQJCgABACwAAAAAKAAoAAACTIyPqcvtD6OctNqLs968+w+GGECWpGiYJhqoJeueaAzAse3iKsv3DJ26ZYAt4UhIPOaKS+WO+XSuoFPpi3q1ypK+rvcLDovH5LK5UQAAIfkECQoAAQAsAAAAACgAKAAAAkiMj6nL7Q+jnLTai7PevPsPhh1AlqRomCYaqCXrnmgMwLHt4irL9wedumWALSGGSDwKkxeksbl8Wpy5YbTqy2q33K73Cw6LHQUAIfkECQoAAQAsAAAAACgAKAAAAkiMj6nL7Q+jnLTai7PevPsPhh1AlqRomCYaqCXrnmgMaHQa23m7Yzfv0gVnvdDv59shL8ciaPl0fqBTqYfKymq33K73Cw6LvwUAOw==);
+				background-repeat: no-repeat;
+				height: 1em;
+				width: 1em;
+				background-size: cover;
+				display: inline-block;
+				vertical-align: -0.1em;
+			}
+			
+			#passwordPlaceholder {
+				display: inline;
+			}
+			
+			.timeLoaded #passwordPlaceholder {
+				display: none;
+			}
+			
+			#passwordInput {
+				display: none;
+			}
+			
+			.timeLoaded #passwordInput {
+				display: inline;
+			}
+			
+			.output {
+				max-height: 0;
+				transition: max-height 3s ease;
+				overflow: hidden;
+			}
+			
+			.timeLoaded.passwordEntered .output {
+				max-height: 50em;
+			}
+			
+			.inputContainer {
+				max-height: 2em;
+				transition: max-height 0.5s ease;
+				overflow: hidden;
+				display: block;
+			}
+			
+			.timeLoaded.passwordEntered .inputContainer {
+				max-height: 0;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="contentContainer">
-			<input id="passwordInput"></input>
 			
-			<p>:(</p>
+			<div class="inputContainer">
+				<input id="passwordInput" placeholder="password pls"></input>
+				<span id="passwordPlaceholder">Loading local time...</span>
+			</div>
 			
 			<div class="output"></div>
 		</div>
@@ -164,7 +214,7 @@
 		<script>
 			var dateString;
 			$(document).ready(function() {
-				console.log(document.querySelector(".contentContainer p").innerHTML);
+				console.log(":(");
 				$.ajax({
 					dataType: 'jsonp',
 					url: 'http://www.timeapi.org/cet/now.json',
@@ -213,14 +263,15 @@
 				var encryptedAES = CryptoJS.AES.encrypt(encryptString, "test");
 				var encryptedString = encryptedAES.toString();
 				/* ^ should obviously not be here in production. ^ */
-				var decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase());
+				var decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase()).toString(CryptoJS.enc.Utf8);
+				console.log(decryptedString);
 				if (decryptedString != "" && ((y > 2015 && m > 11) | (y > 2016))) {
-					$("body").addClass("passwordEntered");
-					$(".cOut").append(decryptedString.toString(CryptoJS.enc.Utf8));
+					$(".cOut").append(decryptedString);
 					for (var i = d; i > 0; i--) {
 						$("#d"+i).appendTo(".output");
 						/* modify content as appropriate for each day: $("#d"+i)... */
 					}
+					$("body").addClass("passwordEntered");
 				}
 				$(".cOut").remove();
 			});
