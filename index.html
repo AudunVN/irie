@@ -177,7 +177,30 @@
 				d = 24;
 				m = 12;
 				console.log(d+" "+m+" "+y);
-				var encryptString = '<div id="d1">day 1</div><div id="d2">day 2</div><div id="d3">day 3</div><div id="d4">day 4</div><div id="d5">day 5</div>';
+				var encryptString = '<div id="d1">day 1</div> \
+									<div id="d2">day 2</div> \
+									<div id="d3">day 3</div> \
+									<div id="d4">day 4</div> \
+									<div id="d5">day 5</div> \
+									<div id="d6">day 6</div> \
+									<div id="d7">day 7</div> \
+									<div id="d8">day 8</div> \
+									<div id="d9">day 9</div> \
+									<div id="d10">day 10</div> \
+									<div id="d11">day 11</div> \
+									<div id="d12">day 12</div> \
+									<div id="d13">day 13</div> \
+									<div id="d14">day 14</div> \
+									<div id="d15">day 15</div> \
+									<div id="d16">day 16</div> \
+									<div id="d17">day 17</div> \
+									<div id="d18">day 18</div> \
+									<div id="d19">day 19</div> \
+									<div id="d20">day 20</div> \
+									<div id="d21">day 21</div> \
+									<div id="d22">day 22</div> \
+									<div id="d23">day 23</div> \
+									<div id="d24">day 24</div>';
 				var encryptedAES = CryptoJS.AES.encrypt(encryptString, "test");
 				var encryptedString = encryptedAES.toString();
 				/* ^ should obviously not be here in production. ^ */
