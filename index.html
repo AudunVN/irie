@@ -162,13 +162,22 @@
 		</script>
 		<!-- (slow) includes end -->
 		<script>
+			var dateString;
 			$(document).ready(function() {
 				console.log(document.querySelector(".contentContainer p").innerHTML);
+				$.ajax({
+					dataType: 'jsonp',
+					url: 'http://www.timeapi.org/cet/now.json',
+					success: function (result) {
+						dateString = result.dateString;
+						$("body").addClass("timeLoaded");
+					}
+				});
 			});
 			
 			$("#passwordInput").keyup(function(event) {
 				$(".output").append('<div class="cOut"></div>');
-				var today = new Date();
+				var today = new Date(dateString);
 				var d = today.getDate();
 				var m = today.getMonth()+1;
 				var y = today.getFullYear();
@@ -177,7 +186,7 @@
 				d = 24;
 				m = 12;
 				console.log(d+" "+m+" "+y);
-				var encryptString = '<div id="d1">day 1</div> \
+				var encryptString ='<div id="d1">day 1</div> \
 									<div id="d2">day 2</div> \
 									<div id="d3">day 3</div> \
 									<div id="d4">day 4</div> \
