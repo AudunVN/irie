@@ -164,21 +164,32 @@
 		<script>
 			$(document).ready(function() {
 				console.log(document.querySelector(".contentContainer p").innerHTML);
-				var encryptedAES = CryptoJS.AES.encrypt("Message", "test");
-				var encryptedString = encryptedAES.toString();
-				var decryptedString = CryptoJS.AES.decrypt(encryptedString, "test");
-				console.log(encryptedAES);
-				console.log(encryptedString);
-				console.log(decryptedString.toString(CryptoJS.enc.Utf8));
 			});
 			
 			$("#passwordInput").keyup(function(event) {
-				var encryptedAES = CryptoJS.AES.encrypt("Message", "test");
+				$(".output").append('<div class="cOut"></div>');
+				var today = new Date();
+				var d = today.getDate();
+				var m = today.getMonth()+1;
+				var y = today.getFullYear();
+				/* v should obviously not be here in production. v */
+				console.log(d+" "+m+" "+y);
+				d = 24;
+				m = 12;
+				console.log(d+" "+m+" "+y);
+				var encryptString = '<div id="d1">day 1</div><div id="d2">day 2</div><div id="d3">day 3</div><div id="d4">day 4</div><div id="d5">day 5</div>';
+				var encryptedAES = CryptoJS.AES.encrypt(encryptString, "test");
 				var encryptedString = encryptedAES.toString();
+				/* ^ should obviously not be here in production. ^ */
 				var decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase());
-				if (decryptedString != "") {
-					document.querySelector(".output").innerHTML = decryptedString.toString(CryptoJS.enc.Utf8);
+				if (decryptedString != "" && ((y > 2015 && m > 11) | (y > 2016))) {
+					$(".cOut").append(decryptedString.toString(CryptoJS.enc.Utf8));
+					for (var i = d; i > 0; i--) {
+						$("#d"+i).appendTo(".output");
+						/* modify content as appropriate for each day: $("#d"+i)... */
+					}
 				}
+				$(".cOut").remove();
 			});
 		</script>
 	</body>
