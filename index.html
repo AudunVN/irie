@@ -128,14 +128,6 @@
 				display: none;
 			}
 			
-			#passwordInput {
-				display: none;
-			}
-			
-			.timeLoaded #passwordInput {
-				display: inline;
-			}
-			
 			.output {
 				max-height: 0;
 				transition: max-height 3s ease;
@@ -148,13 +140,30 @@
 			
 			.inputContainer {
 				max-height: 2em;
-				transition: max-height 0.5s ease;
+				transition: max-height 1s ease;
 				overflow: hidden;
 				display: block;
 			}
 			
 			.timeLoaded.passwordEntered .inputContainer {
 				max-height: 0;
+			}
+			
+			#passwordInput {
+				display: none;
+				transition: background-color 0.2s ease;
+			}
+			
+			.timeLoaded #passwordInput {
+				display: inline;
+			}
+			
+			#passwordInput.wrongPassword {
+				background-color: #ffc8c8;
+			}
+			
+			.timeLoaded.passwordEntered #passwordInput {
+				background-color: #70fb93;
 			}
 		</style>
 	</head>
@@ -212,6 +221,7 @@
 		</script>
 		<!-- (slow) includes end -->
 		<script>
+			var encryptedString = "U2FsdGVkX1/GJwe8K/zBK5RhbcXd/IxPcIByVQEweNeTg0i9EE8ZCrVD7YsWw5ES9OUHg4sQs5r3KnC2nQ0UqMyYXmoPDlreZm1Sc4ZEI2z/2xUpkz9WIRVLnt0HXktX1sr6dCgNrKf6IYOjuUkOKDEc7OzLD3j86Ytt2QVYCOwJ67EMqhwXopw2Z5YPAsAPeYYquUl3f3MFgxdpeftuCOiPQI2ZYIudkA1TYhzP+3a0wJmGogKXwbS1jZ6v7AnlRTNN/SLsiqaWdoF/slz/YU6QKzz90GeciHh+JLLzQ4Ow9xNjps+O9T71A1EaL0DT8DewJPFsBXExqH3B+Uuli9ZvBPwyS3AjLVGIOdt8fh3DR4wolNKBTOqkC3OPg/dAog+tu/CnyEg18LiwLqsIeI29FUAnNgvwI+vKvAc8oxv6r1GjEtPPVk1ZZjyg53TK6p5bVaZJQG3A342+eTvR6wNspSYXwAI1/SxGMLUsuDsop9HE0SHl7XNcS2f3+TBcSIKCNaK7Hbgzs2GDVxg6bSOEluf/8f83YGJWmF8OgGZ/+wG+S2YZYvf8kyEMV/2Pg/PRJluKS7yYWs+HCSxVe5CaJotgrVxeheTxC4+aKFvUQI/Q7Qvlw1G1vsKq93sYwn9S1Y/p93Zk+EhBm7qkcppYN7C/CMzc3xqNwCIKyGDAmMxhLQaRxemFcnL7xhfOFFekzyAvjNnhxtPlm1KvQo5mie+E7PnccFdqo5VjZ7KTSoFkhShL0EafTFKWnu6s5XhPW90Roy/oP2mpEzS5pz9BawVExEYSLc+cVk8nbABZRZ/5ixBp7maq96pSCoZ5gmQ6BdAG0MGaA1mSFMCfO3ikn8v0vndeFnhtVJ71tqEoE6Cl7Z1hstwNE6Mvm19qgxT0ahST4I3Stad/MBmWsAIHUlQFjoHIiKc2Vm8gXnd4H08E+Cp5n4cw2CKD2wQ3l2cRmaVElzzB1FZgZdZ2vQB9BcUasYAaorR7xPvXhrZtHkvi+osb6zxEJa5C8x4r";
 			var dateString;
 			$(document).ready(function() {
 				console.log(":(");
@@ -236,42 +246,26 @@
 				d = 24;
 				m = 12;
 				console.log(d+" "+m+" "+y);
-				var encryptString ='<div id="d1">day 1</div> \
-									<div id="d2">day 2</div> \
-									<div id="d3">day 3</div> \
-									<div id="d4">day 4</div> \
-									<div id="d5">day 5</div> \
-									<div id="d6">day 6</div> \
-									<div id="d7">day 7</div> \
-									<div id="d8">day 8</div> \
-									<div id="d9">day 9</div> \
-									<div id="d10">day 10</div> \
-									<div id="d11">day 11</div> \
-									<div id="d12">day 12</div> \
-									<div id="d13">day 13</div> \
-									<div id="d14">day 14</div> \
-									<div id="d15">day 15</div> \
-									<div id="d16">day 16</div> \
-									<div id="d17">day 17</div> \
-									<div id="d18">day 18</div> \
-									<div id="d19">day 19</div> \
-									<div id="d20">day 20</div> \
-									<div id="d21">day 21</div> \
-									<div id="d22">day 22</div> \
-									<div id="d23">day 23</div> \
-									<div id="d24">day 24</div>';
-				var encryptedAES = CryptoJS.AES.encrypt(encryptString, "test");
-				var encryptedString = encryptedAES.toString();
 				/* ^ should obviously not be here in production. ^ */
-				var decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase()).toString(CryptoJS.enc.Utf8);
+				var decryptedString;
+				try {
+					decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase()).toString(CryptoJS.enc.Utf8);
+				}
+				catch(err) {
+					console.log("Password incorrect.");
+					decryptedString = null;
+				}
 				console.log(decryptedString);
-				if (decryptedString != "" && ((y > 2015 && m > 11) | (y > 2016))) {
+				if (decryptedString !== null && ((y > 2015 && m > 11) | (y > 2016))) {
+					$("#passwordInput").removeClass("wrongPassword");
 					$(".cOut").append(decryptedString);
 					for (var i = d; i > 0; i--) {
 						$("#d"+i).appendTo(".output");
 						/* modify content as appropriate for each day: $("#d"+i)... */
 					}
 					$("body").addClass("passwordEntered");
+				} else {
+					$("#passwordInput").addClass("wrongPassword");
 				}
 				$(".cOut").remove();
 			});
