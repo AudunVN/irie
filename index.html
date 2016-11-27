@@ -110,7 +110,7 @@
 			}
 		</style>
 	</head>
-	<body class="offline">
+	<body>
 		<div class="contentContainer">
 			<input id="passwordInput"></input>
 			
@@ -183,6 +183,7 @@
 				/* ^ should obviously not be here in production. ^ */
 				var decryptedString = CryptoJS.AES.decrypt(encryptedString, $.trim(this.value).toLowerCase());
 				if (decryptedString != "" && ((y > 2015 && m > 11) | (y > 2016))) {
+					$("body").addClass("passwordEntered");
 					$(".cOut").append(decryptedString.toString(CryptoJS.enc.Utf8));
 					for (var i = d; i > 0; i--) {
 						$("#d"+i).appendTo(".output");
