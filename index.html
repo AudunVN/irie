@@ -64,6 +64,16 @@
 				counter-increment: section;
 				content: counter(section) ". ";
 			}*/
+						
+			.noselect, .calDay {
+			  -webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Chrome/Safari/Opera */
+				 -khtml-user-select: none; /* Konqueror */
+				   -moz-user-select: none; /* Firefox */
+					-ms-user-select: none; /* Internet Explorer/Edge */
+						user-select: none; /* Non-prefixed version, currently
+											  not supported by any browser */
+			}
 	
 			body {
 				position: relative;
@@ -282,7 +292,7 @@
 			
 			<div class="inputContainer">
 				<input id="passwordInput" type="password" placeholder="password pls"></input>
-				<span id="passwordPlaceholder">Loading local time...</span>
+				<span id="passwordPlaceholder"><span id="loadText">Loading local time</span>...</span>
 			</div>
 			
 			<div class="output"></div>
@@ -331,11 +341,14 @@
 		</script>
 		<!-- (slow) includes end -->
 		<script>
+			var loadingStrings = ["Adding Hidden Agendas","Adjusting Bell Curves","Aesthesizing Industrial Areas","Aligning Covariance Matrices","Applying Feng Shui Shaders","Applying Theatre Soda Layer","Asserting Packed Exemplars","Attempting to Lock Back-Buffer","Binding Sapling Root System","Breeding Fauna","Building Data Trees","Bureacritizing Bureaucracies","Calculating Inverse Probability Matrices","Calculating Llama Expectoration Trajectory","Calibrating Blue Skies","Charging Ozone Layer","Coalescing Cloud Formations","Cohorting Exemplars","Collecting Meteor Particles","Compounding Inert Tessellations","Compressing Fish Files","Computing Optimal Bin Packing","Concatenating Sub-Contractors","Containing Existential Buffer","Debarking Ark Ramp","Debunching Unionized Commercial Services","Deciding What Message to Display Next","Decomposing Singular Values","Decrementing Tectonic Plates","Deleting Ferry Routes","Depixelating Inner Mountain Surface Back Faces","Depositing Slush Funds","Destabilizing Economic Indicators","Determining Width of Blast Fronts","Deunionizing Bulldozers","Dicing Models","Diluting Livestock Nutrition Variables","Downloading Satellite Terrain Data","Exposing Flash Variables to Streak System","Extracting Resources","Factoring Pay Scale","Fixing Election Outcome Matrix","Flood-Filling Ground Water","Flushing Pipe Network","Gathering Particle Sources","Generating Jobs","Gesticulating Mimes","Graphing Whale Migration","Hiding Willio Webnet Mask","Implementing Impeachment Routine","Increasing Accuracy of RCI Simulators","Increasing Magmafacation","Initializing My Sim Tracking Mechanism","Initializing Rhinoceros Breeding Timetable","Initializing Robotic Click-Path AI","Inserting Sublimated Messages","Integrating Curves","Integrating Illumination Form Factors","Integrating Population Graphs","Iterating Cellular Automata","Lecturing Errant Subsystems","Mixing Genetic Pool","Modeling Object Components","Mopping Occupant Leaks","Normalizing Power","Obfuscating Quigley Matrix","Overconstraining Dirty Industry Calculations","Partitioning City Grid Singularities","Perturbing Matrices","Pixalating Nude Patch","Polishing Water Highlights","Populating Lot Templates","Preparing Sprites for Random Walks","Prioritizing Landmarks","Projecting Law Enforcement Pastry Intake","Realigning Alternate Time Frames","Reconfiguring User Mental Processes","Relaxing Splines","Removing Road Network Speed Bumps","Removing Texture Gradients","Removing Vehicle Avoidance Behavior","Resolving GUID Conflict","Reticulating Splines","Retracting Phong Shader","Retrieving from Back Store","Reverse Engineering Image Consultant","Routing Neural Network Infanstructure","Scattering Rhino Food Sources","Scrubbing Terrain","Searching for Llamas","Seeding Architecture Simulation Parameters","Sequencing Particles","Setting Advisor Moods","Setting Inner Deity Indicators","Setting Universal Physical Constants","Sonically Enhancing Occupant-Free Timber","Speculating Stock Market Indices","Splatting Transforms","Stratifying Ground Layers","Sub-Sampling Water Data","Synthesizing Gravity","Synthesizing Wavelets","Time-Compressing Simulator Clock","Unable to Reveal Current Activity","Weathering Buildings","Zeroing Crime Network"];
+		
 			var encryptedString = "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";
 			
 			var dateString;
 			$(document).ready(function() {
 				console.log(":)");
+				document.querySelector("#loadText").innerHTML = loadingStrings[Math.floor(Math.random()*loadingStrings.length)];
 				$.ajax({
 					dataType: 'jsonp',
 					url: 'http://www.timeapi.org/cet/now.json',
