@@ -399,6 +399,7 @@
 				if (decryptedString !== null && ((y > 2015 && m > 11) | (y > 2016))) {
 					$("#passwordInput").removeClass("wrongPassword");
 					$("#passwordInput").prop('disabled', true);
+					$("#passwordInput").blur();
 					$(".cOut").append(decryptedString);
 					if (y > 2016) {
 						d = 25;
